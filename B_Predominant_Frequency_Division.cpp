@@ -22,31 +22,59 @@ void pre(){
 void solve() {
     int n;
     cin>>n;
-    int one=0;
-    int two=0;
-    int three=0;
+    bool left=false;
+    bool mid=false;
+    vector<int>arr(n);
+    vector<int>pref(n);
+    int x=0;
     for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        if(x==1)one++;
-        else if(x==2)two++;
-        else three++;
+        cin>>arr[i];
+        if(arr[i]==1)x++;
+        else x--;
+        pref[i]=x;
     }
-
+    x=0;
+    for(int i=n-2;i>=1;i--){
+        if(arr[i]==3)x--;
+        else x++;
+        if(x>=0 && pref[i-1]>=0){
+            left=true;
+            mid=true;
+            break;
+        }
+        if(x<0)x=0;
+    }
+    if(left && mid)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 }
 
 /*
-[1,1,2,3],[1,2,3],[3];
-1>=3
+first: {1s>=2s+3s}
+second: {1s+2s>=3s}
+third: {non-empty}
 
-1 2 3
-[1][]
+ex=1 3 3 2
+one=1
+two=1
+three=2;
+{1}->1s>=2s+3s
+{2}->1s+2s>=3s
+{3,3}
+
+   1 3 3 1 2 3
+1  2 2 2 3 3 3
+2  1 1 1 1 2 1
+3  0 1 2 2 2 3
+
+       1 1 1 2 3 3
+       0 1 2 2 2 3   
+
 */
 
 int main() {
     int t = 1;
     pre();
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
