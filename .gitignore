@@ -4,6 +4,7 @@ LLDDESIGN/
 build/
 # VS Code
 .vscode/
+.cph/
 # Test files
 00_input.txt
 00_output.txt
