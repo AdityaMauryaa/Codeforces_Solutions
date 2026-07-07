@@ -1,0 +1,9 @@
+# Project directories
+LLDDESIGN/
+# Build output
+build/
+# VS Code
+.vscode/
+# Test files
+00_input.txt
+00_output.txt
