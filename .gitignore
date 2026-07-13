@@ -1,5 +1,6 @@
 # Project directories
 LLDDESIGN/
+bits/
 # Build output
 build/
 # VS Code
@@ -8,3 +9,4 @@ build/
 # Test files
 00_input.txt
 00_output.txt
+.gitignore
